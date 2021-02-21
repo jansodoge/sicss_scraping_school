@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Page Title</title>
+
+<head>
+
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
+  </head>
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<style>
+</style>
+<script src=""></script>
+<body>
+  <div class="jumbotron">
+    <h1 class="display-4">SICSS Login</h1>
+    <p class="lead">In order to access the data, you need to pass this login <br>
+    PS: Password and User-ID are hidden in the Javascript</p>
+  </div>
+
+
+
+  Username <form name="login"><input
+  name="id" type="text"><br>
+
+  Password: <input name="pass"
+  type="password">
+
+<br>
+<input type="button" value="Login"
+onClick="pasuser(this.form)">
+
+
+
+</body>
+</html>
+
+
+
+<script language="javascript">
+<!--//
+
+
+
+
+function pasuser(form) {
+if (form.id.value=="SICSS") {
+if (form.pass.value=="awesomisoncran") {
+location="page2.html"
+} else {
+alert("Invalid Password")
+}
+} else {  alert("Invalid UserID")
+}
+}
+//-->
+</script>
