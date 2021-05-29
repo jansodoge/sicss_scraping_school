@@ -1,0 +1,88 @@
+
+<!-- Code from https://gist.githubusercontent.com/sphingu/5822349/raw/cfa25f533fd598e9708c8eb4ab1443ab90845ba8/Dynamic_Load_On_Scroll_Jquery.html --> 
+
+<html>
+  <head>
+		<title>Scroll to bottom Detection</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+		var count=0;
+			$(document).ready(function(){
+				SetValues();
+				$(window).scroll(function(){
+					//Will check if the user has reached bottom of a PAGE
+					SetValues();
+					//Check for user has reached bottom of Page
+					if($(window).scrollTop()==($(document).height()-window.innerHeight)){
+						$('#loading').fadeIn();
+						setTimeout("appendContent()", 1000);
+					}
+				});
+			});
+			var appendContent=function(){
+				//alert("You are At Bottom");
+				$('#content').append("@@@@@@@@@ ---------- "+count+" TIMES  ---------- @@@@@@@@@<br/>");
+				count++;
+				for(var i=0;i<30;i++){
+					$('#content').append("Ceci vient d'être chargé<br/>");
+				}
+				$('#loading').fadeOut();
+			};
+			var SetValues=function(){
+				$('table tr:first-child td:nth-child(2)').html($(window).scrollTop());
+				$('table tr:first-child td:nth-child(4)').html($(document).height());
+				$('table tr:first-child td:nth-child(6)').html(window.innerHeight);//$(window).height()
+			};
+		</script>
+		<style type="text/css">
+		*{
+			font-family: verdana;
+		}
+		table{
+			width: 100%;
+			padding:5px 10px;
+			position: fixed;
+			top: 0;
+			left: 0;
+			text-align: center;
+			color:white;
+			background: rgba(0,0,23,0.71);
+			box-shadow: 0 0 10px black;
+		}
+		#content{
+			padding-bottom: 60px;
+		}
+		#loading{
+			display:none;
+			width: 100%;
+			padding:5px 10px;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			text-align: center;
+			color:white;
+			background: rgba(0,0,23,0.71);
+			box-shadow: 0 0 10px black;
+		}
+		table td:nth-child(2n){
+			width:50px;
+			background: white;
+			box-shadow: 0 0 10px white;
+			color:black;
+		}
+		table td:nth-child(1n){
+			text-shadow: 0 0 10px white;
+		}
+		</style>
+	</head>
+	<body>
+
+		 <div id="content" align="center" style="margin-bottom:50%">
+		 	Faites défiler la page pour voir le contenu réel<br/>
+
+		 </pre>
+		 <div id="loading">
+Veuillez attendre le chargement du contenu
+		 </div>
+	</body>
+</html>
